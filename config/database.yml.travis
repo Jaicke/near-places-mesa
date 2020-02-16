@@ -1,0 +1,10 @@
+development: &pgsql
+  adapter: postgresql
+  database: near_places_development
+  username: postgres
+  pool: 25
+  timeout: 5
+
+test:
+  <<: *pgsql
+  database: near_places_test

@@ -1,0 +1,17 @@
+language: ruby
+bundler_args: --jobs=2
+before_script:
+  - cp config/database.yml.travis config/database.yml
+script:
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
+  - bundle exec rspec
+cache: bundler
+services:
+  - postgresql
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+      - postgresql-10
+      - postgresql-client-10
