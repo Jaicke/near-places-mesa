@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/production/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    environment: 
+      DATABASE_URL: postgres://postgres@db
+  postgres:
+    image: postgres:10.3-alpine
+    ports:
+      - "5432"
