@@ -8,6 +8,7 @@ Aplicação desenvolvida com a finalidade de listar locais cadastrados pelos usu
 
 ## Ferramentas utilizadas
 
+- [Ruby on Rails](https://rubyonrails.org/)
 - [Geolocation](https://github.com/alexreisner/geocoder)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://github.com/docker/compose)
