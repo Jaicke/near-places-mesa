@@ -1,8 +1,7 @@
 class PlacesService
-  def initialize(current_user, params, request)
+  def initialize(current_user, params)
     @current_user = current_user
     @params = params
-    @request = request
   end
 
   def filter
@@ -19,10 +18,14 @@ class PlacesService
   private
 
   def filter_map
-    current_user_location = geolocation_search_by(@request.location.data["ip"])
-    current_user_location = geolocation_search_by(@current_user.full_address) if current_user_location.latitude.nil?
+    current_user_location = geolocation_search_by(params_coordinates)
+    current_user_location = geolocation_search_by(@current_user.coordinates) if current_user_location.nil?
 
     @places = Place.near(current_user_location.coordinates)
+  end
+
+  def params_coordinates
+    [@params[:lat], @params[:long]]
   end
 
   def geolocation_search_by(search_param)

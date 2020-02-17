@@ -13,7 +13,6 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :profile, allow_destroy: true
 
-  def full_address
-    [profile.street, profile.city, profile.state, profile.country].compact.join(', ')
-  end
+  delegate :coordinates, to: :profile
+
 end

@@ -1,7 +1,7 @@
 class API::V1::PlacesController < API::V1::ApiController
 
   def index
-    places_service = PlacesService.new(current_user, params, request)
+    places_service = PlacesService.new(current_user, params)
     @places = places_service.filter
 
     if @places.any?

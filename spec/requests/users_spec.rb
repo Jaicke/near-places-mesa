@@ -12,7 +12,7 @@ RSpec.describe "Users requests", type: :request do
 
     describe "PATCH /update" do
       it "responds with 401" do
-        patch api_v1_user_path(id: 1)
+        patch api_v1_users_path
         expect(response).to have_http_status(:unauthorized)
       end
     end
@@ -34,7 +34,7 @@ RSpec.describe "Users requests", type: :request do
         let(:fields) { { user: { email: ""} } }
 
         before do
-          patch api_v1_user_path(user.id), params: fields, headers: authentication_token
+          patch api_v1_users_path, params: fields, headers: authentication_token
         end
 
         it "responds with status 422" do
@@ -46,7 +46,7 @@ RSpec.describe "Users requests", type: :request do
         let(:fields) { { user: { email: "teste2@mesa.inc"} } }
 
         before do
-          patch api_v1_user_path(user.id), params: fields, headers: authentication_token
+          patch api_v1_users_path, params: fields, headers: authentication_token
         end
 
         it "responds with status 200" do
