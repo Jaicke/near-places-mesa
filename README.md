@@ -16,7 +16,7 @@ Aplicação desenvolvida com a finalidade de listar locais cadastrados pelos usu
 - [Postman](https://www.postman.com/)
 
 ## Documentação
-Veja [documentação](https://www.postman.com/) para informações de funcionamento.
+Veja [documentação](https://documenter.getpostman.com/view/8728434/SzKQwzrz) para informações de funcionamento.
 
 ## Testando aplicação
 
