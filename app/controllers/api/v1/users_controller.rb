@@ -3,14 +3,14 @@ class API::V1::UsersController < API::V1::ApiController
 
 	def update
 		if @user.update(user_params)
-			json_response(@user)
+			render json: @user, include: :profile
 		else
 			json_response(@user, :unprocessable_entity)
 		end
 	end
 
 	def index
-		render json: current_user, include: :profile 
+		render json: current_user, include: :profile
 	end
 
 	private

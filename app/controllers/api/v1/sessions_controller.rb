@@ -1,5 +1,5 @@
 class API::V1::SessionsController < API::V1::ApiController
-	skip_before_action :authorize_request
+	skip_before_action :authorize_request, only: :create
 
 	def create
 		user = User.find_by_email(user_params[:email])
@@ -13,10 +13,8 @@ class API::V1::SessionsController < API::V1::ApiController
 
 	def destroy
 		begin
-			user = User.find_by!(authentication_token: params[:id])
-			user.update_column(:authentication_token, nil)
-			# At saving, the token is generated again
-			user.save
+			current_user.update_column(:authentication_token, nil)
+			current_user.save # At saving, a new token is generated
 			head :no_content
 		rescue ActiveRecord::RecordNotFound => e
 			render json: { errors: e.message }, status: :unprocessable_entity
