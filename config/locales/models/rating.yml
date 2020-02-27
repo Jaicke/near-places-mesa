@@ -1,0 +1,15 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      rating:
+        one: Avaliação
+        other: Avaliações
+    attributes:
+      rating:
+        note: Nota
+        comment: Comentário
+        place_id: Lugar
+        place: Lugar
+        user_id: Usuário
+        user: Usuário

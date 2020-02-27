@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      profile:
+        one: Perfil
+        other: Perfis
+    attributes:
+      profile:
+        name: Nome
+        street: Rua
+        city: Cidade
+        country: País
+        state: Estado

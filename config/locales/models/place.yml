@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      place:
+        one: Lugar
+        other: Lugares
+    attributes:
+      place:
+        name: Nome
+        street: Rua
+        city: Cidade
+        country: País
+        state: Estado
